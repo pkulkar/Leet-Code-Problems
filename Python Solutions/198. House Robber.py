@@ -17,6 +17,10 @@ Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (m
              Total amount you can rob = 2 + 9 + 1 = 12.
 """
 
+"""
+Time Complexity: O(n)
+Space Complexity O(n)
+"""
 class Solution:
     def rob(self, nums: List[int]) -> int:
         memo = [-1] * len(nums)
@@ -32,3 +36,17 @@ class Solution:
         max_loot = max(taken, not_taken)
         memo[i] = max_loot
         return max_loot
+
+"""
+Time Complexity: O(n)
+Space Complexity O(1)
+"""
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        prev_max = 0
+        curr_max = 0
+        for i in range(len(nums)):
+            temp = curr_max
+            curr_max = max(prev_max + nums[i], curr_max)
+            prev_max = temp
+        return curr_max
