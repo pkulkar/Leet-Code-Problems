@@ -35,3 +35,7 @@ class Solution:
             shuffled_array.append(x_array[i])
             shuffled_array.append(y_array[i])
         return shuffled_array
+"""
+Time Complexity: O(n)
+Space Complexity: O(n)
+"""
